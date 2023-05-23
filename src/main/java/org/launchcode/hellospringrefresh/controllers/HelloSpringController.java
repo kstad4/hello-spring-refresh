@@ -6,26 +6,17 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class HelloSpringController {
 
-    @GetMapping
-    @ResponseBody
+    @RequestMapping(value = "hello", method = {RequestMethod.GET, RequestMethod.POST})
     public String helloForm() {
-        String html = "<html>" +
-                            "<body>" +
-                                "<form method = 'get' action = '/hello'>" +
-                                    "<input type = 'text' name = 'coder' />" +
-                                    "<input type = 'submit' value = 'Greet Me!' />" +
-                                "</form>" +
-                            "</body>" +
-                      "</html>";
-        return html;
+        return "hello";
 
     };
 
-    @RequestMapping(value = "hello", method = {RequestMethod.GET, RequestMethod.POST})
-    @ResponseBody
-    public String hello(@RequestParam String coder) {
-        return "Hello " + coder + "!";
-    }
+//    @RequestMapping(value = "hello", method = {RequestMethod.GET, RequestMethod.POST})
+//    @ResponseBody
+//    public String hello(@RequestParam String coder) {
+//        return "Hello " + coder + "!";
+//    }
 
 
 };
